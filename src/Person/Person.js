@@ -4,12 +4,13 @@ import './Person.css';
 class Person extends Component{
     render() {
         return (
-            <div className="Person" onClick={this.props.click}>
+            <div className="Person">
                <p>
                  Name : {this.props.name} <br/>
                  Age : {this.props.age} <br/>
                  Email : {this.props.email} 
                </p>
+               <input type='text'/>
             </div>
         );
     }
