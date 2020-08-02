@@ -10,7 +10,8 @@ class Person extends Component{
                  Age : {this.props.age} <br/>
                  Email : {this.props.email} 
                </p>
-               <input type='text'/>
+               <label>Name: </label>
+               <input type='text' onChange={this.props.type}/>
             </div>
         );
     }

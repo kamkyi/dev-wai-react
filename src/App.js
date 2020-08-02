@@ -11,15 +11,34 @@ class App extends Component {
         {name:'Sai kam',age:'22',id:'123343',email:'sai@gmail.com'},
         {name:'Ma yee',age:'22',id:'1233424',email:'ye@gmail.com'}
      ],
-     showHide:false
+     showHide:true
   };
+
+  typeHandler = (event,personId) => {
+
+     const personIndex = this.state.persons.findIndex(p => {
+          return p.id === personId;
+     });
+     const person = { ...this.state.persons[personIndex]};
+
+     person.name = event.target.value;
+
+     const persons = [
+        ...this.state.persons
+     ];
+
+     persons[personIndex] = person;
+
+     this.setState({
+       persons:persons
+     });
+  }
 
   showHide = () => {
       let showHide = !this.state.showHide;
        this.setState({
         showHide: showHide
        });
-       console.log(this.state.showHide);
   }
 
   clickDeleteHandler = (personIndex) => {
@@ -30,7 +49,7 @@ class App extends Component {
 
    render(){
     let persons = this.state.persons.map((person,index) => {
-      return <Person name={person.name} age={person.age} email={person.email} key={person.id} click={this.clickDeleteHandler.bind(this,index)}/>
+      return <Person type={(event) => this.typeHandler(event,person.id)} name={person.name} age={person.age} email={person.email} key={person.id} click={this.clickDeleteHandler.bind(this,index)}/>
     });
     return (
       <div className="App">
