@@ -11,7 +11,7 @@ class Person extends Component{
                  Email : {this.props.email} 
                </p>
                <label>Name: </label>
-               <input type='text' onChange={this.props.type}/>
+               <input type='text' onChange={this.props.type} placeholder="Enter your name"/>
             </div>
         );
     }
