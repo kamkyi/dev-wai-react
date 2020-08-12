@@ -49,7 +49,6 @@ class App extends Component {
 
    render(){
     let persons = this.state.persons.map((person,index) => {
-       console.log('hello');
       return <Person type={(event) => this.typeHandler(event,person.id)} name={person.name} age={person.age} email={person.email} key={person.id} click={this.clickDeleteHandler.bind(this,index)}/>
     });
     return (
